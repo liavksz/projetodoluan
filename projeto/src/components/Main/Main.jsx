@@ -1,4 +1,26 @@
 import "./Main.css";
+import ServicoCard from "../ServicoCard/ServicoCard";
+
+const servicos = [
+  {
+    id: 1,
+    icone: "🗣️",
+    titulo: "Design de interface",
+    descricao: "Telas claras, pensadas para o usuário",
+  },
+  {
+    id: 2,
+    icone: "🗣️",
+    titulo: "Responsividade",
+    descricao: "O mesmo site em qualquer tela",
+  },
+  {
+    id: 3,
+    icone: "🗣️",
+    titulo: "Performance",
+    descricao: "Sites rápidos e otimizados",
+  },
+];
 
 function Main() {
   return (
@@ -14,14 +36,23 @@ function Main() {
             Peça um orçamento
           </a>
           <a href="#portfolio" className="btn-secondary">
-            Ver portifólio
+            Ver portfólio
           </a>
         </div>
       </section>
       <section className="servico">
         <h2>Nossos serviços</h2>
 
-        <div className="servicos-grid"></div>
+        <div className="servicos-grid">
+          {servicos.map((servico) => (
+            <ServicoCard
+              key={servico.id}
+              icone={servico.icone}
+              titulo={servico.titulo}
+              descricao={servico.descricao}
+            />
+          ))}
+        </div>
       </section>
     </main>
   );
